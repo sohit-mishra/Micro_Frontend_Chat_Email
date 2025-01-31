@@ -8,8 +8,8 @@ export default defineConfig({
     federation({
       name: 'app',
       remotes: {
-        remoteChat: `${import.meta.env.VITE_CHAT}/assets/remoteEntry.js`,
-        remoteEmail: `${import.meta.env.VITE_EMAIL}/assets/remoteEntry.js`,
+        remoteChat: import.meta.env.VITE_CHAT,
+        remoteEmail: import.meta.env.VITE_EMAIL,
       },
       shared: ['react', 'react-dom'],
     }),
