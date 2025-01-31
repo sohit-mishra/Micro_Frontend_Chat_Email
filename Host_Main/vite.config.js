@@ -2,14 +2,22 @@ import { defineConfig } from 'vite';
 import federation from '@originjs/vite-plugin-federation';
 import react from '@vitejs/plugin-react';
 
+const CHAT_URL = process.env.VITE_CHAT || import.meta.env.VITE_CHAT;
+const EMAIL_URL = process.env.VITE_EMAIL || import.meta.env.VITE_EMAIL;
+
+if (!CHAT_URL || !EMAIL_URL) {
+  console.error("❌ Missing environment variables! Make sure VITE_CHAT and VITE_EMAIL are set.");
+  process.exit(1);
+}
+
 export default defineConfig({
   plugins: [
     react(),
     federation({
       name: 'app',
       remotes: {
-        remoteChat: import.meta.env.VITE_CHAT,
-        remoteEmail: import.meta.env.VITE_EMAIL,
+        remoteChat: CHAT_URL,
+        remoteEmail: EMAIL_URL,
       },
       shared: ['react', 'react-dom'],
     }),
