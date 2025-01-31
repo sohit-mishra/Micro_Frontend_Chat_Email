@@ -1,0 +1,16 @@
+{
+  "name": "assigment",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev", 
+    "dev": "concurrently \"npm run dev --prefix Host_Main\" \"npm run build --prefix Remote_Chat\" \"npm run build --prefix Remote_Email\"",
+    "install-all": "npm install . && npm install --prefix Host_Main && npm install --prefix Remote_Chat && npm install --prefix Remote_Email"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
