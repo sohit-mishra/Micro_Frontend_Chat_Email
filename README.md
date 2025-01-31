@@ -13,8 +13,6 @@ The goal of this Proof of Concept (POC) is to show how micro-frontends can be in
 - [Installation](#installation)
 - [Scripts](#scripts)
 - [Development](#development)
-- [Building for Production](#building-for-production)
-- [Folder Structure](#folder-structure)
 - [Technologies Used](#technologies-used)
 
 ## Installation 📥
