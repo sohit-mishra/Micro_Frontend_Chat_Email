@@ -1,12 +1,13 @@
 import { HStack, Avatar, Box, Text, useColorModeValue, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, useBreakpointValue } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import ChatWindow from './ChatWindow';
+import config from '../config';
 
 const ChatItem = ({ userId, isActive, onClick }) => {
   const [user, setUser] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); 
-  const appId = import.meta.env.VITE_TALKJS_APP_ID;
-  const authToken = import.meta.env.VITE_TALKJS_AUTH_TOKEN;
+  const appId = config.AppId;
+  const authToken = config.AuthToken;
 
   const hoverBg = useColorModeValue('gray.100', '#dbdbdb');
   const activeBg = useColorModeValue('blue.100', 'blue.700'); 

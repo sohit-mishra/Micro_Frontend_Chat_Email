@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Box, Button, Input, Textarea, FormControl, Heading, FormLabel, Spinner, useToast } from '@chakra-ui/react';
 import axios from 'axios';
+import config from '../config';
+
 
 export default function SendMail() {
   const [email, setEmail] = useState('');
@@ -15,6 +17,7 @@ export default function SendMail() {
       setStatus('Please fill in all fields.');
       return;
     }
+    
 
     const templateParams = {
       reply_to: email,
@@ -29,9 +32,9 @@ export default function SendMail() {
       const response = await axios.post(
         'https://api.emailjs.com/api/v1.0/email/send',
         {
-          service_id: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-          template_id: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          user_id: import.meta.env.VITE_EMAILJS_USER_ID,
+          service_id: config.serviceId,
+          template_id: config.templateId,
+          user_id: config.userId,
           template_params: templateParams,
         },
         {

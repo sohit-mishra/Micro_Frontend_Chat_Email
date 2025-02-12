@@ -1,13 +1,14 @@
 import { Box, VStack, Text, Heading, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import ChatItem from './ChatItem';
+import config from '../config';
 
 export default function ChatList({ activeUser, setActiveUser }) {
   const [users, setUsers] = useState([]);
 
-  const appId = import.meta.env.VITE_TALKJS_APP_ID;
-  const conversationId = import.meta.env.VITE_TALKJS_CONVERSATION_ID;
-  const authToken = import.meta.env.VITE_TALKJS_AUTH_TOKEN;
+  const appId = config.AppId;
+  const conversationId = config.ConversationId;
+  const authToken = config.AuthToken;
 
   const scrollbarColor = useColorModeValue('gray.300', 'gray.500');
 

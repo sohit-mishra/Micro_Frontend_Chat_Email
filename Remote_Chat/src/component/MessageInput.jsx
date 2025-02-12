@@ -1,6 +1,7 @@
 import { Box, Input, IconButton, HStack, Spinner } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaPaperPlane } from 'react-icons/fa';
+import config from '../config';
 
 export default function MessageInput({ activeUser, setDataLoading }) {
   const [message, setMessage] = useState('');
@@ -9,10 +10,10 @@ export default function MessageInput({ activeUser, setDataLoading }) {
   const handleSend = async () => {
     if (!message.trim()) return;
 
-    const appId = import.meta.env.VITE_TALKJS_APP_ID;
-    const conversationId = import.meta.env.VITE_TALKJS_CONVERSATION_ID;
+    const appId = config.AppId;
+    const conversationId = config.ConversationId;
     const userId = activeUser;
-    const authToken = import.meta.env.VITE_TALKJS_AUTH_TOKEN;
+    const authToken = config.AuthToken;
 
     const url = `https://api.talkjs.com/v1/${appId}/conversations/${conversationId}/messages`;
 

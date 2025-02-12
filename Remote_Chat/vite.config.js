@@ -1,6 +1,9 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import federation from '@originjs/vite-plugin-federation';
+import dotenv from "dotenv";
+
+dotenv.config({ path: "../.env" });
 
 export default defineConfig({
   plugins: [
@@ -29,6 +32,12 @@ export default defineConfig({
       },
     },
   ],
+  define: {
+    "import.meta.env.VITE_TALKJS_APP_ID": JSON.stringify(process.env.VITE_TALKJS_APP_ID),
+    "import.meta.env.VITE_TALKJS_CONVERSATION_ID": JSON.stringify(process.env.VITE_TALKJS_CONVERSATION_ID),
+    "import.meta.env.VITE_TALKJS_USER_ID": JSON.stringify(process.env.VITE_TALKJS_USER_ID),
+    "import.meta.env.VITE_TALKJS_AUTH_TOKEN": JSON.stringify(process.env.VITE_TALKJS_AUTH_TOKEN),
+  },
   build: {
     modulePreload: false,
     target: 'esnext',

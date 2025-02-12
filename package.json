@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "npm run dev", 
+    "start": "npm run dev",
     "dev": "concurrently \"npm run dev --prefix Host_Main\" \"npm run watch --prefix Remote_Chat\" \"npm run watch --prefix Remote_Email\"",
+    "build": "concurrently \"npm run build --prefix Host_Main\" \"npm run build --prefix Remote_Chat\" \"npm run build --prefix Remote_Email\"",
     "install-all": "npm install . && npm install --prefix Host_Main && npm install --prefix Remote_Chat && npm install --prefix Remote_Email"
   },
   "author": "",
@@ -12,5 +13,8 @@
   "description": "",
   "devDependencies": {
     "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
   }
 }

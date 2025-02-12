@@ -2,13 +2,14 @@ import { Box, Flex, Text, Avatar } from '@chakra-ui/react';
 import MessageInput from './MessageInput';
 import Message from './Message';
 import { useState, useEffect } from 'react';
+import config from '../config';
 
 export default function ChatWindow({ activeUser }) {
   const [user, setUser] = useState(null);
   const [dataLoading, setDataLoading] = useState(false);
 
-  const appId = import.meta.env.VITE_TALKJS_APP_ID;
-  const authToken = import.meta.env.VITE_TALKJS_AUTH_TOKEN;
+  const appId = config.AppId;
+  const authToken = config.AuthToken;
 
   useEffect(() => {
     if (!activeUser) {

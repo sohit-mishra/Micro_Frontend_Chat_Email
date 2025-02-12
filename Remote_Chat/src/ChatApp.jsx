@@ -2,9 +2,10 @@ import { Flex, ChakraProvider } from '@chakra-ui/react';
 import ChatWindow from './component/ChatWindow';
 import ChatList from './component/ChatList';
 import React, { useState } from 'react';
+import config from './config';
 
 function ChatApp() {
-  const [activeUser, setActiveUser] = useState(import.meta.env.VITE_TALKJS_USER_ID);
+  const [activeUser, setActiveUser] = useState(config.UserId);
 
   return (
     <ChakraProvider>

@@ -1,13 +1,14 @@
 import { Box, Text, Spinner, Flex } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
+import config from '../config';
 
 export default function Message({ activeUser, dataLoading, setDataLoading }) {
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const appId = import.meta.env.VITE_TALKJS_APP_ID;
-  const conversationId = import.meta.env.VITE_TALKJS_CONVERSATION_ID;
-  const authToken = import.meta.env.VITE_TALKJS_AUTH_TOKEN;
+  const appId = config.AppId;
+  const conversationId = config.ConversationId;
+  const authToken = config.AuthToken;
 
   const fetchMessages = async () => {
     setLoading(true);

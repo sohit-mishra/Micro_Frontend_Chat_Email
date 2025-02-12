@@ -8,8 +8,8 @@ export default defineConfig({
     federation({
       name: 'app',
       remotes: {
-        remoteChat: 'https://micro-frontend-chat-email.onrender.com/assets/remoteEntry.js',
-        remoteEmail: 'https://micro-frontend-email.onrender.com/assets/remoteEntry.js',
+        remoteChat: 'http://localhost:5001/assets/remoteEntry.js',
+        remoteEmail: 'http://localhost:5002/assets/remoteEntry.js',
       },
       shared: ['react', 'react-dom'],
     }),
@@ -19,6 +19,7 @@ export default defineConfig({
         server.middlewares.use((req, res, next) => {
           if (req.url === '/__fullReload') {
             server.hot.send({ type: 'full-reload' });
+
             res.end('Full reload triggered');
           } else {
             next();
